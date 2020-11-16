@@ -15,10 +15,10 @@ const client = new Twitter({
 
 module.exports = async (req, res) => {
     const post = await axios.get(
-        "https://www.reddit.com/r/worldnews/hot.json?limit=1"
+        "https://www.reddit.com/r/NatureIsFuckingLit/hot.json?limit=1"
     );
-    const hey = await post.data.data.children[0].data.title;
-    const link = await post.data.data.children[0].data.url_overridden_by_dest; 
+    const hey = await post.data.data.children[1].data.title;
+    const link = await post.data.data.children[1].data.url_overridden_by_dest; 
 
     await client
         .post("statuses/update", { status: `${hey} ${link}`})
