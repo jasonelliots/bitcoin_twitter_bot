@@ -17,11 +17,11 @@ module.exports = async (req, res) => {
     const post = await axios.get(
         "https://www.reddit.com/r/worldnews/hot.json?limit=1"
     );
-    const capition = await post.data.data.children[0].data.title;
+    const hey = await post.data.data.children[0].data.title;
     const link = await post.data.data.children[0].data.url_overridden_by_dest; 
 
     await client
-        .post("statuses/update", { state: `${caption} ${link}`})
+        .post("statuses/update", { status: `${hey} ${link}`})
         .then((result) => {
             console.log(result)
         })
