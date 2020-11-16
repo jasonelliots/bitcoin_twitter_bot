@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
     const link = await post.data.data.children[1].data.url_overridden_by_dest; 
 
     await client
-        .post("statuses/update", { status: `${hey} ${link}`})
+        .post("statuses/update", { status: `${hey}`, media:`${link}`})
         .then((result) => {
             console.log(result)
         })
