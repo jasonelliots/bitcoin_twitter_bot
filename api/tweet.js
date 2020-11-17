@@ -27,9 +27,8 @@ module.exports = async (req, res) => {
     
     const centspersat = (btcprice/100000000)*100 
 
-
     await client
-        .post("statuses/update", { status: `1 satoshi = ${centspersat} cents`})
+        .post("statuses/update", { status: `1 sat = ${centspersat} cents \n\n#bitcoin`})
         .then((result) => {
             console.log(result)
         })
